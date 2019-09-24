@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firstsession</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= alert %>
+    <%= notice %>
+    <% if logged? %>
+      Bienvenido <%= current_user.email %> a mis principios de ruby on rails
+      <%= link_to "Salir", session_path(current_user), method: :delete %>
+    <% else %>
+      el usaario no ingresado
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
